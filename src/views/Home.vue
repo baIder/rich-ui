@@ -5,8 +5,8 @@
       <h1>发财 UI </h1>
       <h2>年轻人的第一个 UI 框架</h2>
       <p class="actions">
-        <a href="">GitHub</a>
-        <a href="">开始</a>
+        <a href="https://github.com/baIder/rich-ui">GitHub</a>
+        <router-link to="/doc">开始</router-link>
       </p>
     </div>
   </div>
