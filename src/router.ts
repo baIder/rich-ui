@@ -9,7 +9,10 @@ export const router = createRouter({
     {path: '/', component: Home},
     {
       path: '/doc', component: Doc, children: [
-        {path: 'switch', component: SwitchDemo}
+        {path: 'switch', component: SwitchDemo},
+        {path: 'switch', component: SwitchDemo},
+        {path: 'switch', component: SwitchDemo},
+        {path: 'switch', component: SwitchDemo},
       ]
     },
   ]
