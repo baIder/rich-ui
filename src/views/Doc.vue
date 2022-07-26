@@ -2,7 +2,7 @@
   <div>
     <TopNav/>
     <div class="content">
-      <aside>
+      <aside v-if="asideVisible">
         <h2>组件列表</h2>
         <ol>
           <li>
@@ -24,13 +24,18 @@
   </div>
 </template>
 
-<script>
-import TopNav from '../components/TopNav.vue'
+<script lang="ts">
+import TopNav from '../components/TopNav.vue';
+import {inject, Ref} from 'vue';
 
 export default {
-  name: "Doc",
-  components: {TopNav}
-}
+  name: 'Doc',
+  components: {TopNav},
+  setup() {
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
+    return {asideVisible};
+  }
+};
 </script>
 
 <style lang="scss" scoped>
