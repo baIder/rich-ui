@@ -1,12 +1,18 @@
 <template>
-  <button>
+  <button :class="`theme-${theme}`" class="rich-button">
     <slot/>
   </button>
 </template>
 
 <script lang="ts">
 export default {
-  name: 'Button'
+  name: 'Button',
+  props: {
+    theme: {
+      type: String,
+      default: 'button',
+    }
+  },
 };
 </script>
 
