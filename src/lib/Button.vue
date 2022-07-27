@@ -1,5 +1,5 @@
 <template>
-  <button :class="classes" class="rich-button">
+  <button :class="classes" :disabled="disabled" class="rich-button">
     <slot/>
   </button>
 </template>
@@ -21,6 +21,10 @@ export default {
     level: {
       type: String,
       default: 'normal',
+    },
+    disabled: {
+      type: Boolean,
+      default: false,
     },
   },
   setup(props) {
@@ -44,6 +48,7 @@ $color: #333;
 $blue: #40a9ff;
 $radius: 4px;
 $red: red;
+$grey: grey;
 .rich-button {
   box-sizing: border-box;
   height: $h;
@@ -164,6 +169,24 @@ $red: red;
       &:focus {
         color: darken($red, 10%);
       }
+    }
+  }
+
+  &.rich-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+
+      &:hover {
+        border-color: $grey;
+      }
+    }
+  }
+
+  &.rich-theme-link, &.rich-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
     }
   }
 }
