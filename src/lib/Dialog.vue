@@ -4,12 +4,11 @@
     <div class="rich-dialog-wrapper">
       <div class="rich-dialog">
         <header>
-          标题
+          <slot name="title"/>
           <span class="rich-dialog-close" @click="close"></span>
         </header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot name="content"/>
         </main>
         <footer>
           <Button level="main" @click="ok">OK</Button>
@@ -27,6 +26,10 @@ export default {
   name: 'Dialog',
   components: {Button},
   props: {
+    title: {
+      type: String,
+      default: '提示',
+    },
     visible: {
       type: Boolean,
       default: false,
@@ -51,7 +54,9 @@ export default {
       if (props.ok?.() !== false) { close(); }
     };
     const cancel = () => {
+      props.cancel?.();
       context.emit('cancel');
+      close();
     };
     return {close, onClickOverlay, ok, cancel};
   }
