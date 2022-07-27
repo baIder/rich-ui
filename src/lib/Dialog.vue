@@ -1,21 +1,23 @@
 <template>
   <template v-if="visible">
-    <div class="rich-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="rich-dialog-wrapper">
-      <div class="rich-dialog">
-        <header>
-          <slot name="title"/>
-          <span class="rich-dialog-close" @click="close"></span>
-        </header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button level="main" @click="ok">OK</Button>
-          <Button @click="cancel">Cancel</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="rich-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="rich-dialog-wrapper">
+        <div class="rich-dialog">
+          <header>
+            <slot name="title"/>
+            <span class="rich-dialog-close" @click="close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button level="main" @click="ok">OK</Button>
+            <Button @click="cancel">Cancel</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
