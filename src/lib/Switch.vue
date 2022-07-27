@@ -1,5 +1,5 @@
 <template>
-  <button :class="{checked:value}" @click="toggle">
+  <button :class="{'rich-checked':value}" class="rich-switch" @click="toggle">
     <span></span>
   </button>
   <div>{{ value }}</div>
@@ -21,10 +21,10 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.rich-switch {
   height: $h;
   width: $h*2;
   border: none;
@@ -43,7 +43,7 @@ button {
     transition: all 250ms;
   }
 
-  &.checked {
+  &.rich-checked {
     background: #1890ff;
 
     &:active {

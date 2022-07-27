@@ -1,6 +1,7 @@
 import {createApp} from 'vue';
-import App from './App.vue';
+import './lib/rich.scss';
 import './index.scss';
+import App from './App.vue';
 import {router} from './router';
 
 
