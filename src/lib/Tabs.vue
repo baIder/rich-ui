@@ -1,7 +1,7 @@
 <template>
   <div class="rich-tabs">
     <div ref="container" class="rich-tabs-nav">
-      <div v-for="(t,index) in titles" :key="index" :ref="el=>{if(el) navItems[index] = el}"
+      <div v-for="(t,index) in titles" :key="index" :ref="el=>{if(t===selected) selectedItem = el}"
            :class="{selected:t===selected}"
            class="rich-tabs-nav-item" @click="select(t)">{{ t }}
       </div>
@@ -15,7 +15,7 @@
 
 <script lang="ts">
 import Tab from './Tab.vue';
-import {computed, onMounted, onUpdated, ref} from "vue";
+import {computed, onMounted, ref, watchEffect} from "vue";
 
 export default {
   name: 'Tabs',
@@ -25,39 +25,39 @@ export default {
     }
   },
   setup(props, context) {
-    const navItems = ref<HTMLDivElement[]>([])
+    const selectedItem = ref<HTMLDivElement>(null)
     const indicator = ref<HTMLDivElement>(null)
     const container = ref<HTMLDivElement>(null)
-    const x = () => {
-      const divs = navItems.value
-      const result = divs.filter(div => div.classList.contains('selected'))[0]
-      const {width} = result.getBoundingClientRect()
-      indicator.value.style.width = width + 'px'
-      const {left: left1} = container.value.getBoundingClientRect()
-      const {left: left2} = result.getBoundingClientRect()
-      const left = left2 - left1
-      indicator.value.style.left = left + 'px'
-    }
-    onMounted(x)
-    onUpdated(x)
+
+    onMounted(() => {
+      watchEffect(() => {
+        const {width} = selectedItem.value.getBoundingClientRect()
+        indicator.value.style.width = width + 'px'
+        const {left: left1} = container.value.getBoundingClientRect()
+        const {left: left2} = selectedItem.value.getBoundingClientRect()
+        const left = left2 - left1
+        indicator.value.style.left = left + 'px'
+      })
+    })
+
+    const current = computed(() => {
+      return defaults.find(tag => tag.props.title === props.selected)
+    })
+
     const defaults = context.slots.default();
     defaults.forEach(tag => {
       if (tag.type !== Tab) {
         throw new Error('Tabs的子组件必须是Tab');
       }
     });
-    const current = computed(() => {
-      return (defaults.filter(tag => {
-        return (tag.props.title === props.selected)
-      })[0])
-    });
+
     const titles = defaults.map(tag => {
       return tag.props.title;
     });
     const select = (title: string) => {
       context.emit('update:selected', title)
     }
-    return {defaults, titles, current, select, navItems, indicator, container};
+    return {defaults, titles, current, select, selectedItem, indicator, container};
   }
 };
 </script>
