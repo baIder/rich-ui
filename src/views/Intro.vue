@@ -1,10 +1,17 @@
 <template>
-  <div>Intro</div>
+  <article class="markdown-body" v-html="mdIntro">
+
+  </article>
 </template>
 
 <script lang="ts">
+import mdIntro from '../markdown/intro.md'
+
 export default {
-  name: "Intro"
+  name: "Intro",
+  setup() {
+    return {mdIntro}
+  }
 }
 </script>
 

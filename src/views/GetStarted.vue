@@ -1,10 +1,16 @@
 <template>
-  <div>GetStarted</div>
+  <article class="markdown-body" v-html="mdGetStarted">
+  </article>
 </template>
 
 <script lang="ts">
+import mdGetStarted from '../markdown/get-started.md'
+
 export default {
-  name: "GetStarted"
+  name: "GetStarted",
+  setup() {
+    return {mdGetStarted}
+  }
 }
 </script>
 

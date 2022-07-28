@@ -1,10 +1,16 @@
 <template>
-  <div>Install</div>
+  <article class="markdown-body" v-html="mdInstall">
+  </article>
 </template>
 
 <script lang="ts">
+import mdInstall from '../markdown/install.md'
+
 export default {
-  name: "Install"
+  name: "Install",
+  setup() {
+    return {mdInstall}
+  }
 }
 </script>
 
