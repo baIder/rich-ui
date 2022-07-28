@@ -1,3 +1,5 @@
+@import "./src/assets/helper.scss";
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -25,7 +27,7 @@ h1, h2, h3, h4, h5, h6 {
 body {
   font-size: 16px;
   line-height: 1.5;
-  color: #1d2c40;
+  color: $body-font-color;
   font-family: -apple-system, "Noto Sans", "Helvetica Neue", Helvetica, "Nimbus Sans L", Arial, "Liberation Sans", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Source Han Sans SC", "Source Han Sans CN", "Microsoft YaHei", "Wenquanyi Micro Hei", "WenQuanYi Zen Hei", "ST Heiti", SimHei, "WenQuanYi Zen Hei Sharp", sans-serif;
 }
 

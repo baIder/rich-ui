@@ -41,7 +41,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$border-color: #d9d9d9;
+@import "../assets/helper.scss";
+
 .demo {
   border: 1px solid $border-color;
   margin: 16px 0 32px;

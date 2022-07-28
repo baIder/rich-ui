@@ -63,13 +63,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$blue: #40a9ff;
-$color: #333;
-$border-color: #d9d9d9;
+@import "../assets/helper.scss";
+
 .rich-tabs {
   &-nav {
     display: flex;
-    color: $color;
+    color: $tabs-font-color;
     border-bottom: 1px solid $border-color;
     position: relative;
 
@@ -83,7 +82,7 @@ $border-color: #d9d9d9;
       }
 
       &.selected {
-        color: $blue;
+        color: $tabs-blue;
       }
 
 
@@ -92,7 +91,7 @@ $border-color: #d9d9d9;
     &-indicator {
       position: absolute;
       height: 3px;
-      background: $blue;
+      background: $tabs-blue;
       left: 0;
       bottom: -1px;
       width: 100px;

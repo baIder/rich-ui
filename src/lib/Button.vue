@@ -47,16 +47,11 @@ export default {
 </script>
 
 <style lang="scss">
-$h: 32px;
-$border-color: #d9d9d9;
-$color: #333;
-$blue: #40a9ff;
-$radius: 4px;
-$red: red;
-$grey: grey;
+@import "../assets/helper.scss";
+
 .rich-button {
   box-sizing: border-box;
-  height: $h;
+  height: $button-h;
   padding: 0 12px;
   cursor: pointer;
   display: inline-flex;
@@ -64,9 +59,9 @@ $grey: grey;
   align-items: center;
   white-space: nowrap;
   background: white;
-  color: $color;
+  color: $button-color;
   border: 1px solid $border-color;
-  border-radius: $radius;
+  border-radius: $border-radius;
   box-shadow: 0 1px 0 fade-out(black, 0.95);
   transition: background 250ms;
 
@@ -76,8 +71,8 @@ $grey: grey;
 
   &:hover,
   &:focus {
-    color: $blue;
-    border-color: $blue;
+    color: $button-blue;
+    border-color: $button-blue;
   }
 
   &:focus {
@@ -89,17 +84,17 @@ $grey: grey;
   }
 
   &.rich-theme-link {
-    border-color: transparent;
+    border-color: $button-themed-border-color;
     box-shadow: none;
-    color: $blue;
+    color: $button-blue;
 
     &:hover, &:focus {
-      color: lighten($blue, 10%);
+      color: lighten($button-blue, 10%);
     }
   }
 
   &.rich-theme-text {
-    border-color: transparent;
+    border-color: $button-themed-border-color;
     box-shadow: none;
     color: inherit;
 
@@ -122,57 +117,57 @@ $grey: grey;
 
   &.rich-theme-button {
     &.rich-level-main {
-      background: $blue;
-      color: white;
-      border-color: $blue;
+      background: $button-blue;
+      color: $button-font-level-color;
+      border-color: $button-blue;
 
       &:hover,
       &:focus {
-        background: darken($blue, 10%);
-        border-color: darken($blue, 10%);
+        background: darken($button-blue, 10%);
+        border-color: darken($button-blue, 10%);
       }
     }
 
     &.rich-level-danger {
-      background: $red;
-      border-color: $red;
-      color: white;
+      background: $button-danger-background;
+      border-color: $button-danger-background;
+      color: $button-font-level-color;
 
       &:hover,
       &:focus {
-        background: darken($red, 10%);
-        border-color: darken($red, 10%);
+        background: darken($button-danger-background, 10%);
+        border-color: darken($button-danger-background, 10%);
       }
     }
   }
 
   &.rich-theme-link {
     &.rich-level-danger {
-      color: $red;
+      color: $button-danger-background;
 
       &:hover,
       &:focus {
-        color: darken($red, 10%);
+        color: darken($button-danger-background, 10%);
       }
     }
   }
 
   &.rich-theme-text {
     &.rich-level-main {
-      color: $blue;
+      color: $button-blue;
 
       &:hover,
       &:focus {
-        color: darken($blue, 10%);
+        color: darken($button-blue, 10%);
       }
     }
 
     &.rich-level-danger {
-      color: $red;
+      color: $button-danger-background;
 
       &:hover,
       &:focus {
-        color: darken($red, 10%);
+        color: darken($button-danger-background, 10%);
       }
     }
   }
@@ -180,10 +175,10 @@ $grey: grey;
   &.rich-theme-button {
     &[disabled] {
       cursor: not-allowed;
-      color: $grey;
+      color: $button-disabled-color;
 
       &:hover {
-        border-color: $grey;
+        border-color: $button-disabled-color;
       }
     }
   }
@@ -191,7 +186,7 @@ $grey: grey;
   &.rich-theme-link, &.rich-theme-text {
     &[disabled] {
       cursor: not-allowed;
-      color: $grey;
+      color: $button-disabled-color;
     }
   }
 
@@ -201,7 +196,7 @@ $grey: grey;
     display: inline-block;
     margin-right: 4px;
     border-radius: 8px;
-    border-color: $blue $blue $blue transparent;
+    border-color: $button-blue $button-blue $button-blue transparent;
     border-style: solid;
     border-width: 2px;
     animation: rich-spin 1s infinite linear;

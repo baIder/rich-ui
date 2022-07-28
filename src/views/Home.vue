@@ -52,9 +52,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$green: #02bcb0;
-$border-radius: 4px;
-$color: #007974;
+@import "../assets/helper.scss";
 
 .topNavAndBanner {
   background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
@@ -117,7 +115,7 @@ $color: #007974;
 
 .banner {
   padding: 100px 0;
-  color: $color;
+  color: $banner-font-color;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -128,7 +126,7 @@ $color: #007974;
 
     a {
       margin: 0 8px;
-      background: $green;
+      background: $banner-a-background;
       color: white;
       display: inline-block;
       padding: 8px 24px;

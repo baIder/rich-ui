@@ -48,12 +48,18 @@ export default {
     },
   },
   setup(props, context) {
-    const close = () => { context.emit('update:visible', false); };
+    const close = () => {
+      context.emit('update:visible', false);
+    };
     const onClickOverlay = () => {
-      if (props.closeOnClickOverlay) { close(); }
+      if (props.closeOnClickOverlay) {
+        close();
+      }
     };
     const ok = () => {
-      if (props.ok?.() !== false) { close(); }
+      if (props.ok?.() !== false) {
+        close();
+      }
     };
     const cancel = () => {
       props.cancel?.();
@@ -65,11 +71,12 @@ export default {
 </script>
 
 <style lang="scss">
-$radius: 4px;
-$border-color: #d9d9d9;
+@import "../assets/helper.scss";
+
+
 .rich-dialog {
   background: white;
-  border-radius: $radius;
+  border-radius: $dialog-radius;
   box-shadow: 0 0 3px fade_out(black, 0.5);
   min-width: 15em;
   max-width: 90%;
