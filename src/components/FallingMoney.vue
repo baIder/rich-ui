@@ -54,11 +54,11 @@ export default {
 
     @keyframes fall-#{$i} {
       80% {
-        transform: translate($random-x, 90vh) scale($random-scale) rotate($rotate);
+        transform: translate($random-x, 85vh) scale($random-scale) rotate($rotate);
         opacity: random(10000) * 0.0001;
       }
       100% {
-        transform: translate($random-x, 96vh) scale($random-scale) rotate($rotate);
+        transform: translate($random-x, 95vh) scale($random-scale) rotate($rotate);
         opacity: 0;
       }
     }
