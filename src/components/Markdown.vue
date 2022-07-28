@@ -14,7 +14,7 @@ export default {
       required: true,
     }
   },
-  setup(props, context) {
+  setup(props) {
     const content = ref<string>('')
     import(props.path).then(result => {
       content.value = result.default
