@@ -8,8 +8,8 @@
 
 <script lang="ts">
 import Button from '../lib/Button.vue';
-import Switch1Demo from './Switch1.demo.vue'
-import Switch2Demo from './Switch2.demo.vue'
+import Switch1Demo from './ComponentsDemo/Switch1.demo.vue'
+import Switch2Demo from './ComponentsDemo/Switch2.demo.vue'
 
 import {ref} from 'vue';
 import Demo from "./Demo.vue";
