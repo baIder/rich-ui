@@ -1,10 +1,10 @@
 <template>
   <div class="topNav">
-    <div class="logo">
+    <router-link class="logo" to="/">
       <svg class="icon">
         <use href="#qiandai"/>
       </svg>
-    </div>
+    </router-link>
     <ul class="menu">
       <li>
         <router-link to="/doc">文档</router-link>
