@@ -1,5 +1,6 @@
 <template>
   <div>
+    <FallingMoney/>
     <div class="topNavAndBanner">
       <TopNav/>
       <div class="banner">
@@ -37,14 +38,16 @@
       </ul>
     </div>
   </div>
+
 </template>
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
+import FallingMoney from '../components/FallingMoney.vue'
 
 export default {
   name: 'Home',
-  components: {TopNav}
+  components: {TopNav, FallingMoney}
 };
 </script>
 
