@@ -46,7 +46,7 @@ export default {
     $random-img: ceil(random(3));
 
     &:nth-child(#{$i}) {
-      background-image: url(../assets/#{$random-img}.svg);
+      background-image: url(https://img.bald3r.wang/img/rich-ui-falling-money-#{$random-img}.svg);
       opacity: random(10000) * 0.0001;
       transform: translate($random-x, -10px) scale($random-scale);
       animation: fall-#{$i} $fall-duration $fall-delay linear infinite;
