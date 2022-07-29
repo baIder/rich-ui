@@ -1,10 +1,9 @@
 <demo>
-普通提示
+用openMessage调用提醒
 </demo>
 <template>
   <div>
-    <Button @click="toggle">打开一个普通提示</Button>
-    <Message v-model:visible="x" message="这是一个普通样式的Message全局提醒"/>
+    <Button @click="toggle">点击这里调用提醒</Button>
   </div>
 </template>
 

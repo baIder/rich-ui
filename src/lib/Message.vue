@@ -2,7 +2,10 @@
   <template v-if="visible">
     <Teleport to="body">
       <div class="rich-message">
-        <span class="rich-message-typeIndicator">{{ msgType }}</span>
+        <svg class="iconpark-icon" v-html="typeIndicator">
+          <!--          <use href="#error"></use>-->
+        </svg>
+        <!--        <span class="rich-message-typeIndicator" v-html="typeIndicator"></span>-->
         <div class="rich-message-msgText">{{ message }}</div>
       </div>
     </Teleport>
@@ -34,6 +37,8 @@ export default {
     }
   },
   setup(props, context) {
+    const typeIndicator = `<use href="#${props.msgType}"></use>`
+    // const typeIndicator = `<svg class="iconpark-icon"><use href="#${props.msgType}"></use></svg>`
     onMounted(() => {
       setTimeout(() => {
         context.emit('update:visible', false)
@@ -41,7 +46,7 @@ export default {
         console.log('3s')
       }, props.closeDelay)
     })
-
+    return {typeIndicator}
   }
 }
 </script>
@@ -51,11 +56,37 @@ export default {
 
 .rich-message {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 200px;
-  height: 50px;
-  border: 1px solid red;
+  top: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 8px 16px;
+  line-height: 1;
   z-index: 30;
+
+  border-radius: $border-radius;
+  background: $message-background;
+  box-shadow: 0 0 15px fade_out(black, 0.8);
+
+  display: flex;
+
+  .iconpark-icon {
+    width: 1em;
+    height: 1em;
+  }
+
+  //> .rich-message-typeIndicator {
+  //  width: 16px;
+  //  height: 16px;
+  //
+  //  > .iconpark-icon {
+  //    width: 16px;
+  //    height: 16px;
+  //  }
+  //
+  //}
+
+  > .rich-message-msgText {
+
+  }
 }
 </style>

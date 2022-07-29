@@ -1,10 +1,10 @@
 <demo>
-普通提示
+可改提醒持续时间
 </demo>
 <template>
   <div>
-    <Button @click="toggle">打开一个普通提示</Button>
-    <Message v-model:visible="x" message="这是一个普通样式的Message全局提醒"/>
+    <Button @click="toggle">打开一个持续10s的提醒</Button>
+    <Message v-model:visible="x" close-delay="10000" message="这是一个普通样式的Message全局提醒"/>
   </div>
 </template>
 
