@@ -1,11 +1,9 @@
 <template>
   <template v-if="visible">
     <Teleport to="body">
-      <div class="rich-message">
+      <div ref="msgDiv" class="rich-message">
         <svg class="iconpark-icon" v-html="typeIndicator">
-          <!--          <use href="#error"></use>-->
         </svg>
-        <!--        <span class="rich-message-typeIndicator" v-html="typeIndicator"></span>-->
         <div class="rich-message-msgText">{{ message }}</div>
       </div>
     </Teleport>
@@ -14,7 +12,7 @@
 
 <script lang="ts">
 
-import {onMounted} from "vue";
+import {onUpdated, ref} from "vue";
 
 export default {
   name: "Message",
@@ -32,21 +30,20 @@ export default {
       default: false,
     },
     closeDelay: {
-      type: Number,
-      default: 3000,
+      type: String,
+      default: '3000',
     }
   },
   setup(props, context) {
+    let msgDiv = ref(null)
     const typeIndicator = `<use href="#${props.msgType}"></use>`
-    // const typeIndicator = `<svg class="iconpark-icon"><use href="#${props.msgType}"></use></svg>`
-    onMounted(() => {
+    onUpdated(() => {
       setTimeout(() => {
         context.emit('update:visible', false)
-        console.log(props.closeDelay)
-        console.log('3s')
-      }, props.closeDelay)
+      }, props.closeDelay * 1)
     })
-    return {typeIndicator}
+
+    return {typeIndicator, msgDiv}
   }
 }
 </script>
