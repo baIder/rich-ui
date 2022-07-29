@@ -1,9 +1,9 @@
 <demo>
-普通提示
+普通提醒
 </demo>
 <template>
   <div>
-    <Button @click="toggle">打开一个普通提示</Button>
+    <Button @click="toggle">打开一个普通提醒</Button>
     <Message v-model:visible="x" message="这是一个普通样式的Message全局提醒"/>
   </div>
 </template>

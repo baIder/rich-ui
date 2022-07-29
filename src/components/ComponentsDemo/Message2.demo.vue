@@ -1,5 +1,5 @@
 <demo>
-可选提示类型
+可选提醒类型
 </demo>
 <template>
   <div>
