@@ -76,7 +76,7 @@ export default {
 
 .rich-dialog {
   background: white;
-  border-radius: $dialog-radius;
+  border-radius: $border-radius;
   box-shadow: 0 0 3px fade_out(black, 0.5);
   min-width: 15em;
   max-width: 90%;
