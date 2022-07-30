@@ -30,6 +30,7 @@ export default {
   },
   setup(props) {
     const html = computed(() => {
+      //@ts-ignore
       return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
     })
     let codeVisible = ref(false)
