@@ -19,10 +19,6 @@ export default {
       type: String,
       default: 'normal',
     },
-    visible: {
-      type: Boolean,
-      default: false,
-    },
   },
   setup(props) {
     const typeIndicator = `<use href="#${props.msgType}"></use>`
@@ -67,7 +63,7 @@ export default {
   align-items: center;
 
   &.message-active {
-    transform: translate(0px);
+    transform: translateY(0px);
     opacity: 1;
 
   }
