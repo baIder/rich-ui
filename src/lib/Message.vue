@@ -1,16 +1,12 @@
 <template>
-  <template v-if="visible">
-    <div ref="msgDiv" class="rich-message">
-      <svg class="iconpark-icon" v-html="typeIndicator">
-      </svg>
-      <div class="rich-message-msgText">{{ message }}</div>
-    </div>
-  </template>
+  <div ref="msgDiv" class="rich-message">
+    <svg class="iconpark-icon" v-html="typeIndicator">
+    </svg>
+    <div class="rich-message-msgText">{{ message }}</div>
+  </div>
 </template>
 
 <script lang="ts">
-
-import {onMounted, onUpdated, ref} from "vue";
 
 export default {
   name: "Message",
@@ -38,14 +34,27 @@ export default {
 <style lang="scss">
 @import "../assets/helper.scss";
 
+#msgDiv {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
 .rich-message {
-  position: fixed;
   top: 16px;
   left: 50%;
-  transform: translate(-50%, -100px);
+  transform: translateY(-100px);
 
   opacity: 0;
+  width: max-content;
   padding: 12px 16px;
+  margin-top: 16px;
   line-height: 1;
   z-index: 30;
   border-radius: $border-radius;
@@ -57,9 +66,15 @@ export default {
   display: flex;
   align-items: center;
 
+  &.message-active {
+    transform: translate(0px);
+    opacity: 1;
+
+  }
+
   > .iconpark-icon {
-    width: 24px;
-    height: 24px;
+    width: 20px;
+    height: 20px;
   }
 
   > .rich-message-msgText {
@@ -68,9 +83,5 @@ export default {
     font-size: 14px;
   }
 
-  &.message-active {
-    transform: translate(-50%, 0px);
-    opacity: 1;
-  }
 }
 </style>
