@@ -3,25 +3,22 @@
 </demo>
 <template>
   <div>
-    <Button @click="toggle">打开一个持续10s的提醒</Button>
-    <Message v-model:visible="x" close-delay="10000" message="这是一个普通样式的Message全局提醒"/>
+    <Button @click="pop10sMsg">打开一个持续10s的提醒</Button>
   </div>
 </template>
 
 <script lang="ts">
-import Message from '../../lib/Message.vue'
 import Button from "../../lib/Button.vue";
-import {ref} from "vue";
+import {popMessage} from "../../lib/popMessage";
 
 export default {
   name: "Message1.demo",
-  components: {Button, Message},
+  components: {Button},
   setup() {
-    const x = ref(false)
-    const toggle = () => {
-      x.value = !x.value
+    const pop10sMsg = () => {
+      popMessage({message: '这是一个持续10s的提醒', msgType: 'normal', closeDelay: '10000'})
     }
-    return {x, toggle}
+    return {pop10sMsg}
   }
 }
 </script>

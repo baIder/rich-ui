@@ -3,33 +3,30 @@
 </demo>
 <template>
   <div>
-    <Button @click="toggle">Success</Button>
-    <Message v-model:visible="x" message="这是一个Success类型的Message全局提醒" type="success"/>
-    <Button @click="toggle">Warning</Button>
-    <Message v-model:visible="x" message="这是一个Warning类型的Message全局提醒" type="warning"/>
-    <Button @click="toggle">Error</Button>
-    <Message v-model:visible="x" message="这是一个Error类型的Message全局提醒" type="error"/>
+    <Button @click="popSuccessMsg">Success</Button>
+    <Button @click="popWarningMsg">Warning</Button>
+    <Button @click="popErrorMsg">Error</Button>
   </div>
 </template>
 
 <script lang="ts">
-import Message from '../../lib/Message.vue'
 import Button from "../../lib/Button.vue";
-import {ref} from "vue";
+import {popMessage} from "../../lib/popMessage";
 
 export default {
   name: "Message1.demo",
-  components: {Button, Message},
+  components: {Button},
   setup() {
-    const x = ref(false)
-    const toggle = () => {
-      x.value = !x.value
+    const popSuccessMsg = () => {
+      popMessage({message: '这是一个Success类型的全局提醒', msgType: 'success', closeDelay: '3000'})
     }
-    return {x, toggle}
+    const popWarningMsg = () => {
+      popMessage({message: '这是一个Warning类型的全局提醒', msgType: 'warning', closeDelay: '3000'})
+    }
+    const popErrorMsg = () => {
+      popMessage({message: '这是一个Error类型的全局提醒', msgType: 'error', closeDelay: '3000'})
+    }
+    return {popErrorMsg, popSuccessMsg, popWarningMsg}
   }
 }
 </script>
-
-<style lang="scss" scoped>
-
-</style>

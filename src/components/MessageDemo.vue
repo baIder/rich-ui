@@ -3,7 +3,6 @@
   <Demo :component="Message1Demo"/>
   <Demo :component="Message2Demo"/>
   <Demo :component="Message3Demo"/>
-  <Demo :component="Message4Demo"/>
 </template>
 
 <script lang="ts">
@@ -11,13 +10,12 @@ import Demo from "./Demo.vue";
 import Message1Demo from "./ComponentsDemo/Message1.demo.vue";
 import Message2Demo from "./ComponentsDemo/Message2.demo.vue";
 import Message3Demo from "./ComponentsDemo/Message3.demo.vue";
-import Message4Demo from "./ComponentsDemo/Message4.demo.vue";
 
 export default {
   name: "MessageDemo",
   components: {Demo},
   setup() {
-    return {Message1Demo, Message2Demo, Message3Demo, Message4Demo,}
+    return {Message1Demo, Message2Demo, Message3Demo,}
   }
 }
 </script>
