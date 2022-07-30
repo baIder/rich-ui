@@ -11,13 +11,6 @@ export const popMessage = (options) => {
     }
     const div = document.createElement('div');
     msgContainer.insertAdjacentElement('beforeend', div)
-    const close = () => {
-        app.unmount();
-        div.remove();
-        if (msgContainer.children.length === 0) {
-            msgContainer.remove()
-        }
-    };
 
     function randomLetter(len) {
         let str = '';
@@ -47,7 +40,11 @@ export const popMessage = (options) => {
     setTimeout(() => {
         msgDiv.classList.remove('message-active')
         msgDiv.ontransitionend = () => {
-            close()
+            app.unmount();
+            div.remove();
+            if (msgContainer.children.length === 0) {
+                msgContainer.remove()
+            }
         }
     }, closeDelay * 1);
 
