@@ -6,8 +6,8 @@
     <Button @click="toggle">打开对话框</Button>
     <Dialog v-model:visible="x" :cancel="f2" :closeOnClickOverlay="false" :ok="f1">
       <template v-slot:content>
-        <strong>hi</strong>
-        <div>hi2</div>
+        <strong>这是一行加粗的文字</strong>
+        <div>这是一行普通的文字</div>
       </template>
       <template v-slot:title>
         <strong>加粗的标题</strong>
@@ -34,7 +34,6 @@ export default {
       x.value = !x.value
     }
     const f1 = () => {
-      return false
     }
     const f2 = () => {
     }
