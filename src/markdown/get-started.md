@@ -1,14 +1,14 @@
 # 开始使用
 
-请先[安装](#/doc/install)本组件库。
+首先，你需要[安装](#/doc/install)发财UI
 
-然后在你的代码中写入下面的代码
+然后只需要在你的代码中加入下列引用
 
 ```bash
-import {Button, Tabs, Switch, Dialog} from "rich-ui"
+import {Button, Tabs, Switch, Dialog, Message} from "rich-ui"
 ```
 
-就可以使用我提供的组件了。
+就可以愉快的使用发财UI的所有组件了~
 
 ## Vue单文件组件
 
@@ -22,7 +22,7 @@ import {Button, Tabs, Switch, Dialog} from "rich-ui"
 </template>
 
 <script>
-  import {Button, Tabs, Switch, Dialog} from "rich-ui"
+  import {Button, Tabs, Switch, Dialog, Message} from "rich-ui"
 
   export default 
     components: {Button}
