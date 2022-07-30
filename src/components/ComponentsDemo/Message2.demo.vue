@@ -18,13 +18,13 @@ export default {
   components: {Button},
   setup() {
     const popSuccessMsg = () => {
-      popMessage({message: '这是一个Success类型的全局提醒', msgType: 'success', closeDelay: '3000'})
+      popMessage({message: '这是一个Success提醒', msgType: 'success', closeDelay: '3000'})
     }
     const popWarningMsg = () => {
-      popMessage({message: '这是一个Warning类型的全局提醒', msgType: 'warning', closeDelay: '3000'})
+      popMessage({message: '这是一个Warning提醒', msgType: 'warning', closeDelay: '3000'})
     }
     const popErrorMsg = () => {
-      popMessage({message: '这是一个Error类型的全局提醒', msgType: 'error', closeDelay: '3000'})
+      popMessage({message: '这是一个Error提醒', msgType: 'error', closeDelay: '3000'})
     }
     return {popErrorMsg, popSuccessMsg, popWarningMsg}
   }

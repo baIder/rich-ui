@@ -56,7 +56,7 @@ export default {
   top: 16px;
   left: 50%;
   transform: translateX(-50%);
-  padding: 8px 16px;
+  padding: 12px 16px;
   line-height: 1;
   z-index: 30;
 
@@ -64,26 +64,20 @@ export default {
   background: $message-background;
   box-shadow: 0 0 15px fade_out(black, 0.8);
 
+  transition: all 1s;
+
   display: flex;
+  align-items: center;
 
   .iconpark-icon {
-    width: 1em;
-    height: 1em;
+    width: 20px;
+    height: 20px;
   }
 
-  //> .rich-message-typeIndicator {
-  //  width: 16px;
-  //  height: 16px;
-  //
-  //  > .iconpark-icon {
-  //    width: 16px;
-  //    height: 16px;
-  //  }
-  //
-  //}
-
   > .rich-message-msgText {
-
+    margin-left: 8px;
+    line-height: 1.5;
+    font-size: 14px;
   }
 }
 </style>
