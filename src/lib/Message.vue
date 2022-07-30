@@ -1,18 +1,16 @@
 <template>
   <template v-if="visible">
-    <Teleport to="body">
-      <div ref="msgDiv" class="rich-message">
-        <svg class="iconpark-icon" v-html="typeIndicator">
-        </svg>
-        <div class="rich-message-msgText">{{ message }}</div>
-      </div>
-    </Teleport>
+    <div ref="msgDiv" class="rich-message">
+      <svg class="iconpark-icon" v-html="typeIndicator">
+      </svg>
+      <div class="rich-message-msgText">{{ message }}</div>
+    </div>
   </template>
 </template>
 
 <script lang="ts">
 
-import {onUpdated, ref} from "vue";
+import {onMounted, onUpdated, ref} from "vue";
 
 export default {
   name: "Message",
@@ -29,21 +27,10 @@ export default {
       type: Boolean,
       default: false,
     },
-    closeDelay: {
-      type: String,
-      default: '3000',
-    }
   },
-  setup(props, context) {
-    let msgDiv = ref(null)
+  setup(props) {
     const typeIndicator = `<use href="#${props.msgType}"></use>`
-    onUpdated(() => {
-      setTimeout(() => {
-        context.emit('update:visible', false)
-      }, props.closeDelay * 1)
-    })
-
-    return {typeIndicator, msgDiv}
+    return {typeIndicator}
   }
 }
 </script>
@@ -52,32 +39,38 @@ export default {
 @import "../assets/helper.scss";
 
 .rich-message {
-  position: absolute;
+  position: fixed;
   top: 16px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translate(-50%, -100px);
+
+  opacity: 0;
   padding: 12px 16px;
   line-height: 1;
   z-index: 30;
-
   border-radius: $border-radius;
   background: $message-background;
   box-shadow: 0 0 15px fade_out(black, 0.8);
 
-  transition: all 1s;
+  transition: all 250ms;
 
   display: flex;
   align-items: center;
 
-  .iconpark-icon {
-    width: 20px;
-    height: 20px;
+  > .iconpark-icon {
+    width: 24px;
+    height: 24px;
   }
 
   > .rich-message-msgText {
     margin-left: 8px;
     line-height: 1.5;
     font-size: 14px;
+  }
+
+  &.message-active {
+    transform: translate(-50%, 0px);
+    opacity: 1;
   }
 }
 </style>

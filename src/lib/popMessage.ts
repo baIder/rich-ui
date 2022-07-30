@@ -1,4 +1,4 @@
-import {createApp, h} from 'vue';
+import {createApp, h, ref} from 'vue';
 import Message from './Message.vue'
 
 export const popMessage = (options) => {
@@ -9,19 +9,36 @@ export const popMessage = (options) => {
         app.unmount();
         div.remove();
     };
+    const msgId = Math.floor(Math.random() * 100)
     const app = createApp({
         render() {
             return h(Message, {
                 visible: true,
                 message,
                 msgType,
-                closeDelay,
+                id: msgId,
             });
         }
     });
     app.mount(div);
 
+    const msgDiv = document.getElementById(String(msgId))
     setTimeout(() => {
-        close();
-    }, closeDelay * 1);
+        msgDiv.classList.add('message-active')
+    }, 0)
+
+    const msgVanish = new Promise((resolve, reject) => {
+        setTimeout(() => {
+            msgDiv.classList.remove('message-active')
+            setTimeout(() => {
+                resolve(() => {
+                })
+            }, 250)
+        }, closeDelay * 1);
+
+    })
+
+    Promise.all([msgVanish]).then(close)
+
+
 };
