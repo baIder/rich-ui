@@ -18,7 +18,6 @@ window.onload = () => {
         loadingWrapper.ontransitionend = () => {
             loadingWrapper.remove()
         }
-        console.log('加载完成JS')
-    }, 100)
+    }, 0)
 
 }
