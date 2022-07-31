@@ -197,6 +197,7 @@ aside {
 
       transition: all 250ms;
       @media (max-width: 500px) {
+        width: 100%;
         &::before {
           display: none;
         }
