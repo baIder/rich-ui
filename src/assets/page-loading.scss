@@ -1,0 +1,17 @@
+#loading-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: white;
+  z-index: 40;
+  filter: opacity(0);
+  transition: filter 750ms ease-in;
+
+  > .page-loading {
+    filter: opacity(0.5);
+  }
+
+
+}
