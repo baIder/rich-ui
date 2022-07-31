@@ -95,6 +95,7 @@ $asideIndex: 10;
     padding: 36px;
     background: white;
     overflow: auto;
+    box-shadow: 0 0 5px fade_out(black, 0.5);
   }
 }
 
@@ -127,6 +128,7 @@ aside {
   transition: all 250ms;
 
   -webkit-tap-highlight-color: transparent;
+  box-shadow: 0 0 5px fade_out(black, 0.5);
 
   @media (max-width: 500px) {
     box-shadow: 0 0 5px fade_out(black, 0.5);
@@ -185,7 +187,7 @@ aside {
       position: absolute;
       height: 44px;
       background-color: white;
-      width: 100%;
+      width: 105%;
       top: 26px;
       z-index: -1;
       border-left: 4px solid darken(lightblue, 50%);
