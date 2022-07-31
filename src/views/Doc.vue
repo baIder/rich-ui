@@ -48,7 +48,7 @@ export default {
             toggleActive('asideBar-shade')
           }
         })
-        asideShade.addEventListener('click', (e) => {
+        asideShade.addEventListener('click', () => {
           toggleActive('asideBar')
           toggleActive('asideBar-shade')
         })
@@ -122,6 +122,8 @@ aside {
   z-index: $asideIndex;
 
   transition: all 250ms;
+
+  -webkit-tap-highlight-color: transparent;
 
   @media (max-width: 500px) {
     box-shadow: 0 0 5px fade_out(black, 0.5);

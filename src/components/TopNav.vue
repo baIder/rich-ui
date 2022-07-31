@@ -46,7 +46,7 @@ export default {
   props: {
     toggleAsideButtonVisible: {
       type: Boolean,
-      default: true,
+      default: false,
     }
   },
   setup() {
