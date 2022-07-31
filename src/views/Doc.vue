@@ -39,6 +39,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import "../assets/helper.scss";
+
 $asideIndex: 10;
 
 .layout {
@@ -113,8 +115,9 @@ aside {
       }
 
       &.aside-links-title {
-        padding-left: 6px;
+        padding-left: 4px;
         font-size: 24px;
+        font-weight: 600;
         pointer-events: none;
       }
     }
