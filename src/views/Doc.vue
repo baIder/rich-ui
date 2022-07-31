@@ -90,9 +90,11 @@ $asideIndex: 10;
   }
 
   > main {
+
     flex-grow: 1;
-    padding: 16px;
+    padding: 36px;
     background: white;
+    overflow: auto;
   }
 }
 
@@ -112,13 +114,14 @@ $asideIndex: 10;
 }
 
 aside {
-  background: lightblue;
-  width: 150px;
   position: fixed;
   top: 0;
   left: 0;
   padding: 70px 0 16px;
+
   height: 100%;
+  background: lightblue;
+  width: 150px;
   z-index: $asideIndex;
 
   transition: all 250ms;
@@ -158,6 +161,11 @@ aside {
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 5px fade_out(black, 0.5);
+      }
+
+      &.router-link-active {
+        pointer-events: none;
       }
 
       &.aside-links-title {
@@ -172,7 +180,7 @@ aside {
     }
 
     > .aside-links-selected-indicator {
-      $width: 10px;
+      $width: 5px;
 
       position: absolute;
       height: 44px;
@@ -181,6 +189,7 @@ aside {
       top: 26px;
       z-index: -1;
       border-left: 4px solid darken(lightblue, 50%);
+      box-shadow: -5px 0 5px fade_out(black, 0.5);
 
       transition: all 250ms;
       @media (max-width: 500px) {
@@ -201,7 +210,7 @@ aside {
         height: $width;
         background: transparent;
         border-bottom-right-radius: calc($width * 2);
-        box-shadow: $width $width 0 $width white;
+        box-shadow: 2px 2px 0 2px white;
       }
 
       &::after {
@@ -213,14 +222,10 @@ aside {
         height: $width;
         background: transparent;
         border-top-right-radius: calc($width * 2);
-        box-shadow: $width calc($width * -1) 0 $width white;
+        box-shadow: 2px -2px 0 2px white;
       }
     }
   }
 }
 
-
-main {
-  overflow: auto;
-}
 </style>

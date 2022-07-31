@@ -3,8 +3,19 @@
 </demo>
 <template>
   <Tabs v-model:selected="x">
-    <Tab title="导航1">内容1</Tab>
-    <Tab title="导航2">内容2</Tab>
+    <Tab title="导航1">
+      <div>
+        这是导航1中的内容，内容支持html
+      </div>
+      <strong>支持粗体</strong>
+      <br/>
+      <a href="#">支持超链接</a>
+    </Tab>
+    <Tab title="导航2">
+      <div>
+        这是导航2中的内容
+      </div>
+    </Tab>
   </Tabs>
 </template>
 

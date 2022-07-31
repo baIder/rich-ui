@@ -46,6 +46,7 @@ export default {
 
 .demo {
   border: 1px solid $border-color;
+  border-radius: 6px;
   margin: 16px 0 32px;
 
   > h2 {
