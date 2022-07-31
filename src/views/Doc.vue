@@ -197,6 +197,7 @@ aside {
 
       transition: all 250ms;
       @media (max-width: 500px) {
+        box-shadow: 0 0 5px fade_out(black, 0.5);
         width: 100%;
         &::before {
           display: none;
