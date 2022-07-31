@@ -17,6 +17,7 @@
           <div class="aside-links-selected-indicator"></div>
         </div>
       </aside>
+      <div id="asideBar-shade" class="asideBar-shade"></div>
       <main>
         <router-view/>
       </main>
@@ -26,7 +27,7 @@
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
-import {inject, onMounted, Ref} from 'vue';
+import {onMounted} from 'vue';
 
 export default {
   name: 'Doc',
@@ -78,6 +79,21 @@ $asideIndex: 10;
   }
 }
 
+.asideBar-shade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9;
+
+  &.active {
+    display: block;
+  }
+}
+
 aside {
   background: lightblue;
   width: 150px;
@@ -95,7 +111,7 @@ aside {
     left: -160px;
   }
 
-  &.show {
+  &.active {
     left: 0;
   }
 

@@ -49,9 +49,13 @@ export default {
     }
   },
   setup() {
+    const toggleActive = (id) => {
+      const el = document.getElementById(id)
+      el.classList.contains('active') ? el.classList.remove('active') : el.classList.add('active')
+    }
     const toggleAside = () => {
-      const asideBar = document.getElementById('asideBar')
-      asideBar.classList.contains('show') ? asideBar.classList.remove('show') : asideBar.classList.add('show')
+      toggleActive('asideBar')
+      toggleActive('asideBar-shade')
     };
     return {toggleAside};
   }
