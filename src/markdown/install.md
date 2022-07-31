@@ -12,4 +12,4 @@ npm install rich-ui
 yarn add rich-ui
 ```
 
-下一节：[开始使用](#/doc/get-start)
+下一节：[开始使用](#/doc/get-started)
