@@ -127,7 +127,6 @@ aside {
 
   transition: all 250ms;
 
-  -webkit-tap-highlight-color: transparent;
   box-shadow: 0 0 5px fade_out(black, 0.5);
 
   @media (max-width: 500px) {
