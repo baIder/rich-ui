@@ -39,6 +39,7 @@
 </template>
 
 <script lang="ts">
+import {toggleActive} from "../lib/toggleActive.ts";
 
 export default {
   name: 'TopNav.vue',
@@ -49,10 +50,6 @@ export default {
     }
   },
   setup() {
-    const toggleActive = (id) => {
-      const el = document.getElementById(id)
-      el.classList.contains('active') ? el.classList.remove('active') : el.classList.add('active')
-    }
     const toggleAside = () => {
       toggleActive('asideBar')
       toggleActive('asideBar-shade')

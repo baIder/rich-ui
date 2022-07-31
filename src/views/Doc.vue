@@ -28,6 +28,7 @@
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
 import {onMounted} from 'vue';
+import {toggleActive} from "../lib/toggleActive";
 
 export default {
   name: 'Doc',
@@ -36,6 +37,22 @@ export default {
     onMounted(() => {
       const topNav = document.getElementById('topNav')
       topNav.classList.add('inPageDoc')
+      const asideBar = document.getElementById('asideBar')
+      const asideShade = document.getElementById('asideBar-shade')
+      const width = document.body.clientWidth
+      if (width <= 500) {
+        asideBar.addEventListener('click', (e) => {
+          //@ts-ignore
+          if (e.target.tagName.toLowerCase() === 'a') {
+            toggleActive('asideBar')
+            toggleActive('asideBar-shade')
+          }
+        })
+        asideShade.addEventListener('click', (e) => {
+          toggleActive('asideBar')
+          toggleActive('asideBar-shade')
+        })
+      }
     })
   }
 };
@@ -121,7 +138,6 @@ aside {
     @for $i from 1 through 10 {
       a:nth-child(#{$i}).router-link-active ~ .aside-links-selected-indicator {
         transform: translateY(calc(54px * #{$i}));
-
       }
     }
 
@@ -131,7 +147,6 @@ aside {
       list-style: none;
       height: 44px;
       width: 130px;
-      //background-color: rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       border-radius: 6px;
