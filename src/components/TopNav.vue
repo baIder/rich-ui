@@ -1,5 +1,5 @@
 <template>
-  <div class="topNav">
+  <div id="topNav" class="topNav">
     <router-link class="logo" to="/">
       <svg class="icon">
         <use href="#qiandai"/>
@@ -8,7 +8,28 @@
     </router-link>
     <ul class="menu">
       <li>
-        <router-link to="/doc">文档</router-link>
+        <router-link to="/doc">
+          <svg class="topNav-menu-icon">
+            <use href="#document"></use>
+          </svg>
+          <span class="topNav-menu-text">组件文档</span>
+        </router-link>
+      </li>
+      <li>
+        <a href="https://bald3r.wang">
+          <svg class="topNav-menu-icon">
+            <use href="#blog"></use>
+          </svg>
+          <span class="topNav-menu-text">我的博客</span>
+        </a>
+      </li>
+      <li>
+        <a href="https://github.com/baIder/rich-ui">
+          <svg class="topNav-menu-icon">
+            <use href="#github"></use>
+          </svg>
+          <span class="topNav-menu-text">GitHub</span>
+        </a>
       </li>
     </ul>
     <svg v-if="toggleAsideButtonVisible" class="toggleAside" @click="toggleAside">
@@ -56,6 +77,11 @@ export default {
   justify-content: center;
   align-items: center;
 
+  &.inPageDoc {
+    box-shadow: 0 0 3px fade_out(black, 0.5);
+    background: rgba(183, 233, 230, 1);
+  }
+
   > .logo {
     max-width: 6em;
     margin-right: auto;
@@ -79,7 +105,20 @@ export default {
     white-space: nowrap;
 
     > li {
-      margin: 0 1em;
+      > a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 16px;
+
+        > .topNav-menu-icon {
+          margin-right: 4px;
+          color: $topNav-font-color;
+          width: 1.1em;
+          height: 1.1em;
+        }
+      }
+
     }
   }
 

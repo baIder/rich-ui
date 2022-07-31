@@ -26,12 +26,16 @@
 
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
-import {inject, Ref} from 'vue';
+import {inject, onMounted, Ref} from 'vue';
 
 export default {
   name: 'Doc',
   components: {TopNav},
   setup() {
+    onMounted(() => {
+      const topNav = document.getElementById('topNav')
+      topNav.classList.add('inPageDoc')
+    })
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     return {asideVisible};
   }
@@ -134,6 +138,14 @@ aside {
       border-left: 4px solid darken(lightblue, 50%);
 
       transition: all 250ms;
+      @media (max-width: 500px) {
+        &::before {
+          display: none;
+        }
+        &::after {
+          display: none;
+        }
+      }
 
       &::before {
         content: '';
