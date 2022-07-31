@@ -2,7 +2,7 @@
   <div class="layout">
     <TopNav class="nav" toggle-aside-button-visible/>
     <div class="content">
-      <aside v-if="asideVisible">
+      <aside id="asideBar">
         <div class="aside-links-wrapper">
           <a class="aside-links-title">文档</a>
           <router-link to="/doc/intro">介绍</router-link>
@@ -36,8 +36,6 @@ export default {
       const topNav = document.getElementById('topNav')
       topNav.classList.add('inPageDoc')
     })
-    const asideVisible = inject<Ref<boolean>>('asideVisible');
-    return {asideVisible};
   }
 };
 </script>
@@ -90,6 +88,17 @@ aside {
   height: 100%;
   z-index: $asideIndex;
 
+  transition: all 250ms;
+
+  @media (max-width: 500px) {
+    box-shadow: 0 0 5px fade_out(black, 0.5);
+    left: -160px;
+  }
+
+  &.show {
+    left: 0;
+  }
+
 
   > .aside-links-wrapper {
 
@@ -106,7 +115,7 @@ aside {
       list-style: none;
       height: 44px;
       width: 130px;
-      background-color: transparent;
+      //background-color: rgba(255, 255, 255, 0.2);
       display: flex;
       align-items: center;
       border-radius: 6px;
@@ -119,10 +128,13 @@ aside {
       }
 
       &.aside-links-title {
+        background-color: transparent;
         padding-left: 4px;
         font-size: 24px;
         font-weight: 600;
         pointer-events: none;
+        border-radius: 0;
+        border-bottom: 3px solid rgba(0, 0, 0, 0.2);
       }
     }
 

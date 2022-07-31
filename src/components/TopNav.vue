@@ -39,20 +39,19 @@
 </template>
 
 <script lang="ts">
-import {inject, Ref} from 'vue';
 
 export default {
   name: 'TopNav.vue',
   props: {
     toggleAsideButtonVisible: {
       type: Boolean,
-      default: false,
+      default: true,
     }
   },
   setup() {
-    const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
-      asideVisible.value = !asideVisible.value;
+      const asideBar = document.getElementById('asideBar')
+      asideBar.classList.contains('show') ? asideBar.classList.remove('show') : asideBar.classList.add('show')
     };
     return {toggleAside};
   }
