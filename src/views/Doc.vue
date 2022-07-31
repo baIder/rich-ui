@@ -121,7 +121,7 @@ aside {
   padding: 70px 0 16px;
 
   height: 100%;
-  background: lightblue;
+  background: #f1f3fe;
   width: 150px;
   z-index: $asideIndex;
 
@@ -160,6 +160,7 @@ aside {
       text-decoration: none;
 
       transition: all 250ms;
+      color: $features-font-color;
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.5);
@@ -178,6 +179,7 @@ aside {
         pointer-events: none;
         border-radius: 0;
         border-bottom: 3px solid rgba(0, 0, 0, 0.2);
+        color: $features-font-color;
       }
     }
 
@@ -190,7 +192,7 @@ aside {
       width: 105%;
       top: 26px;
       z-index: -1;
-      border-left: 4px solid darken(lightblue, 50%);
+      border-left: 4px solid #F08329;
       box-shadow: -5px 0 5px fade_out(black, 0.5);
 
       transition: all 250ms;

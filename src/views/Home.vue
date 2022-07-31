@@ -4,10 +4,10 @@
     <div class="topNavAndBanner">
       <TopNav/>
       <div class="banner">
-        <h1>发财 UI </h1>
+        <h1>发财UI </h1>
         <h2>年轻人的第一个 UI 框架</h2>
         <p class="actions">
-          <a href="https://github.com/baIder/rich-ui">GitHub</a>
+          <a class="github" href="https://github.com/baIder/rich-ui">GitHub</a>
           <router-link class="start" to="/doc">开始</router-link>
         </p>
       </div>
@@ -55,7 +55,8 @@ export default {
 @import "../assets/helper.scss";
 
 .topNavAndBanner {
-  background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+  //background: linear-gradient(145deg, rgba(227, 255, 253, 1) 0%, rgba(183, 233, 230, 1) 100%);
+  background: linear-gradient(145deg, rgba(250, 251, 255, 0.9) 0%, rgba(226, 230, 253, 0.9) 100%);
   clip-path: ellipse(80% 60% at 50% 40%);
 }
 
@@ -104,10 +105,12 @@ export default {
       > h3 {
         grid-area: title;
         font-size: 28px;
+        color: $features-font-color;
       }
 
       > p {
-        grid-area: text
+        grid-area: text;
+        color: $sub-features-font-color;
       }
     }
   }
@@ -121,29 +124,45 @@ export default {
   align-items: center;
   flex-direction: column;
 
+  > h1 {
+    font-size: 64px;
+    font-weight: 800;
+    letter-spacing: 8px;
+    text-shadow: 3px 3px 3px fade_out(black, 0.7) !important;
+  }
+
+  > h2 {
+    font-size: 32px;
+    font-weight: 600;
+    text-shadow: 2px 2px 2px fade_out(black, 0.7) !important;
+  }
+
   > .actions {
-    padding: 8px 0;
+    padding: 32px 0 0 0;
 
     a {
       text-decoration: none;
       margin: 0 8px;
-      background: $banner-a-background;
-      color: white;
       display: inline-block;
       padding: 8px 24px;
       border-radius: $border-radius;
       transition: all 250ms;
+      font-weight: 500;
 
       &.start {
+        color: white;
+        background: linear-gradient(90deg, #f3a455 0%, #f08429 100%);;
         animation: animated-box-shadow 1s infinite;
+        font-weight: 600;
+        letter-spacing: 2px;
 
         @keyframes animated-box-shadow {
           0% {
-            box-shadow: 0 0 0 0 fade-out($banner-a-background, 0.3);
+            box-shadow: 0 0 0 0 fade-out(#f08429, 0.3);
 
           }
           100% {
-            box-shadow: 0 0 0 10px fade-out($banner-a-background, 1);
+            box-shadow: 0 0 0 10px fade-out(#f08429, 1);
           }
         }
 
@@ -152,18 +171,29 @@ export default {
 
           @keyframes animated-box-shadow-hover {
             0% {
-              box-shadow: 0 0 0 0 fade-out($link-hover-color, 0.3);
+              box-shadow: 0 0 0 0 fade-out(#f08429, 0.3);
 
             }
             100% {
-              box-shadow: 0 0 0 10px fade-out($link-hover-color, 1);
+              box-shadow: 0 0 0 10px fade-out(#f08429, 1);
             }
           }
         }
       }
 
-      &:hover {
-        background: $link-hover-color;
+      &.github {
+        background: white;
+
+        letter-spacing: 1px;
+        outline: 2px solid fade-out(#737474, 0.5);
+        color: #464646;
+
+        &:hover {
+          outline: 2px solid transparent;
+          color: white;
+          background: $link-hover-color;
+        }
+
       }
     }
   }

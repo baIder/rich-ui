@@ -82,7 +82,7 @@ export default {
 
   &.inPageDoc {
     box-shadow: 0 0 3px fade_out(black, 0.5);
-    background: rgba(183, 233, 230, 1);
+    background: rgb(226, 230, 253);
   }
 
   > .topNav-left-logo {
