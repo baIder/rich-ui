@@ -3,36 +3,19 @@
     <TopNav class="nav" toggle-aside-button-visible/>
     <div class="content">
       <aside v-if="asideVisible">
-        <h2>文档</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/intro">介绍</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/install">安装</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/get-started">开始使用</router-link>
-          </li>
-        </ol>
-        <h2>组件列表</h2>
-        <ol>
-          <li>
-            <router-link to="/doc/switch">Switch 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tabs">Tabs 组件</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/message">Message 组件</router-link>
-          </li>
-        </ol>
+        <div class="aside-links-wrapper">
+          <a class="aside-links-title">文档</a>
+          <router-link to="/doc/intro">介绍</router-link>
+          <router-link to="/doc/install">安装</router-link>
+          <router-link to="/doc/get-started">开始使用</router-link>
+          <a class="aside-links-title">组件列表</a>
+          <router-link to="/doc/switch">Switch 组件</router-link>
+          <router-link to="/doc/button">Button 组件</router-link>
+          <router-link to="/doc/dialog">Dialog 组件</router-link>
+          <router-link to="/doc/tabs">Tabs 组件</router-link>
+          <router-link to="/doc/message">Message 组件</router-link>
+          <div class="aside-links-selected-indicator"></div>
+        </div>
       </aside>
       <main>
         <router-view/>
@@ -101,25 +84,81 @@ aside {
   height: 100%;
   z-index: $asideIndex;
 
-  > h2 {
-    margin-bottom: 4px;
-    padding: 0 16px;
-  }
 
-  > ol {
-    > li {
-      > a {
-        display: block;
-        padding: 4px 16px;
+  > .aside-links-wrapper {
+
+    @for $i from 1 through 10 {
+      a:nth-child(#{$i}).router-link-active ~ .aside-links-selected-indicator {
+        transform: translateY(calc(54px * #{$i}));
+
+      }
+    }
+
+    > a {
+      margin: 10px 0 10px 10px;
+      padding-left: 12px;
+      list-style: none;
+      height: 44px;
+      width: 130px;
+      background-color: transparent;
+      display: flex;
+      align-items: center;
+      border-radius: 6px;
+      text-decoration: none;
+
+      transition: all 250ms;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.5);
       }
 
-      > .router-link-active {
-        background: white;
+      &.aside-links-title {
+        padding-left: 6px;
+        font-size: 24px;
+        pointer-events: none;
+      }
+    }
+
+    > .aside-links-selected-indicator {
+      $width: 10px;
+
+      position: absolute;
+      height: 44px;
+      background-color: white;
+      width: 100%;
+      top: 26px;
+      z-index: -1;
+      border-left: 4px solid darken(lightblue, 50%);
+
+      transition: all 250ms;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: -$width;
+        right: 0;
+        width: $width;
+        height: $width;
+        background: transparent;
+        border-bottom-right-radius: calc($width * 2);
+        box-shadow: $width $width 0 $width white;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -$width;
+        right: 0;
+        width: $width;
+        height: $width;
+        background: transparent;
+        border-top-right-radius: calc($width * 2);
+        box-shadow: $width calc($width * -1) 0 $width white;
       }
     }
   }
-
 }
+
 
 main {
   overflow: auto;
