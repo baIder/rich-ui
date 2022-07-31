@@ -118,7 +118,7 @@ export default {
         display: flex;
         justify-content: center;
         align-items: center;
-        margin-right: 16px;
+        margin-right: 8px;
         background: transparent;
         color: $topNav-font-color;
         padding: 0;
@@ -128,6 +128,10 @@ export default {
 
         &:hover {
           color: $topNav-font-hover-color;
+        }
+
+        > .topNav-menu-text {
+          letter-spacing: 1px;
         }
 
         > .topNav-menu-icon {

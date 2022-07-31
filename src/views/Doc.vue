@@ -6,7 +6,7 @@
         <div class="aside-links-wrapper">
           <a class="aside-links-title">文档</a>
           <router-link to="/doc/intro">介绍</router-link>
-          <router-link to="/doc/install">安装</router-link>
+          <router-link to="/doc/install">如何安装</router-link>
           <router-link to="/doc/get-started">开始使用</router-link>
           <a class="aside-links-title">组件列表</a>
           <router-link to="/doc/switch">Switch 组件</router-link>
