@@ -8,7 +8,7 @@
         <h2>年轻人的第一个 UI 框架</h2>
         <p class="actions">
           <a href="https://github.com/baIder/rich-ui">GitHub</a>
-          <router-link to="/doc">开始</router-link>
+          <router-link class="start" to="/doc">开始</router-link>
         </p>
       </div>
     </div>
@@ -125,6 +125,7 @@ export default {
     padding: 8px 0;
 
     a {
+      text-decoration: none;
       margin: 0 8px;
       background: $banner-a-background;
       color: white;
@@ -133,8 +134,35 @@ export default {
       border-radius: $border-radius;
       transition: all 250ms;
 
+      &.start {
+        animation: animated-box-shadow 1s infinite;
+
+        @keyframes animated-box-shadow {
+          0% {
+            box-shadow: 0 0 0 0 fade-out($banner-a-background, 0.3);
+
+          }
+          100% {
+            box-shadow: 0 0 0 10px fade-out($banner-a-background, 1);
+          }
+        }
+
+        &:hover {
+          animation: animated-box-shadow-hover 500ms infinite;
+
+          @keyframes animated-box-shadow-hover {
+            0% {
+              box-shadow: 0 0 0 0 fade-out($link-hover-color, 0.3);
+
+            }
+            100% {
+              box-shadow: 0 0 0 10px fade-out($link-hover-color, 1);
+            }
+          }
+        }
+      }
+
       &:hover {
-        text-decoration: none;
         background: $link-hover-color;
       }
     }
