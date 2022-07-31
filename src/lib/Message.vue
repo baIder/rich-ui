@@ -1,6 +1,6 @@
 <template>
   <div ref="msgDiv" class="rich-message">
-    <svg class="iconpark-icon" v-html="typeIndicator">
+    <svg class="rich-message-icon" v-html="typeIndicator">
     </svg>
     <div class="rich-message-msgText">{{ message }}</div>
   </div>
@@ -68,7 +68,7 @@ export default {
 
   }
 
-  > .iconpark-icon {
+  > .rich-message-icon {
     width: 20px;
     height: 20px;
   }

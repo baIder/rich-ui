@@ -1,7 +1,7 @@
 <template>
   <div id="topNav" class="topNav">
-    <router-link class="logo" to="/">
-      <svg class="icon">
+    <router-link class="topNav-left-logo" to="/">
+      <svg class="topNav-left-logo-icon">
         <use href="#qiandai"/>
       </svg>
       <span class="logo-text">发财UI</span>
@@ -40,9 +40,12 @@
 
 <script lang="ts">
 import {toggleActive} from "../lib/toggleActive.ts";
+import Button from '../lib/Button.vue'
 
 export default {
   name: 'TopNav.vue',
+  components: {Button},
+
   props: {
     toggleAsideButtonVisible: {
       type: Boolean,
@@ -82,11 +85,16 @@ export default {
     background: rgba(183, 233, 230, 1);
   }
 
-  > .logo {
-    max-width: 6em;
+  > .topNav-left-logo {
+    text-decoration: none;
     margin-right: auto;
     display: flex;
     align-items: center;
+    transition: all 250ms;
+
+    &:hover {
+      color: $topNav-font-hover-color;
+    }
 
     > svg {
       width: 32px;
@@ -94,9 +102,10 @@ export default {
     }
 
     > .logo-text {
-      text-decoration: none;
-      font-size: 16px;
-      padding-left: 12px;
+      font-size: 20px;
+      font-weight: bolder;
+      letter-spacing: 2px;
+      padding-left: 8px;
     }
   }
 
@@ -110,13 +119,24 @@ export default {
         justify-content: center;
         align-items: center;
         margin-right: 16px;
+        background: transparent;
+        color: $topNav-font-color;
+        padding: 0;
+        text-decoration: none;
+
+        transition: all 250ms;
+
+        &:hover {
+          color: $topNav-font-hover-color;
+        }
 
         > .topNav-menu-icon {
           margin-right: 4px;
-          color: $topNav-font-color;
+          color: inherit;
           width: 1.1em;
           height: 1.1em;
         }
+
       }
 
     }
@@ -136,7 +156,7 @@ export default {
     > .menu {
       display: none;
     }
-    > .logo {
+    > .topNav-left-logo {
       margin: 0 auto;
     }
     > .toggleAside {

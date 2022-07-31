@@ -15,21 +15,21 @@
     <div class="features">
       <ul>
         <li>
-          <svg class="icon">
+          <svg class="rich-home-features-icon">
             <use href="#Vue"></use>
           </svg>
           <h3>基于 Vue 3</h3>
           <p>骄傲地使用了 Vue 3 Composition API</p>
         </li>
         <li>
-          <svg class="icon">
+          <svg class="rich-home-features-icon">
             <use href="#typescript"></use>
           </svg>
           <h3>基于 TypeScript </h3>
           <p>源代码采用 TypeScript 书写</p>
         </li>
         <li>
-          <svg class="icon">
+          <svg class="rich-home-features-icon">
             <use href="#linggan"></use>
           </svg>
           <h3>代码易读</h3>
@@ -131,9 +131,11 @@ export default {
       display: inline-block;
       padding: 8px 24px;
       border-radius: $border-radius;
+      transition: all 250ms;
 
       &:hover {
         text-decoration: none;
+        background: #1890FF;
       }
     }
   }
