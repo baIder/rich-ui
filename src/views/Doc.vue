@@ -92,7 +92,7 @@ $asideIndex: 10;
   > main {
 
     flex-grow: 1;
-    padding: 36px;
+    padding: 24px;
     background: white;
     overflow: auto;
     box-shadow: 0 0 5px fade_out(black, 0.5);

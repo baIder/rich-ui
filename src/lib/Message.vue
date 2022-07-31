@@ -34,6 +34,7 @@ export default {
   position: absolute;
   top: 0;
   left: 50%;
+  z-index: 100;
   transform: translateX(-50%);
 
   display: flex;
@@ -43,8 +44,6 @@ export default {
 }
 
 .rich-message {
-  top: 16px;
-  left: 50%;
   transform: translateY(-100px);
 
   opacity: 0;
@@ -52,7 +51,7 @@ export default {
   padding: 12px 16px;
   margin-top: 16px;
   line-height: 1;
-  z-index: 30;
+  z-index: 100;
   border-radius: $border-radius;
   background: $message-background;
   box-shadow: 0 0 15px fade_out(black, 0.8);
