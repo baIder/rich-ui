@@ -135,7 +135,7 @@ export default {
 
       &:hover {
         text-decoration: none;
-        background: #1890FF;
+        background: $link-hover-color;
       }
     }
   }

@@ -93,7 +93,7 @@ export default {
     transition: all 250ms;
 
     &:hover {
-      color: $topNav-font-hover-color;
+      color: $link-hover-color;
     }
 
     > svg {
@@ -127,7 +127,7 @@ export default {
         transition: all 250ms;
 
         &:hover {
-          color: $topNav-font-hover-color;
+          color: $link-hover-color;
         }
 
         > .topNav-menu-text {
