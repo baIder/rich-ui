@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts">
-import Button from "../../lib/Button.vue";
+import {Button} from "../../lib/index";
 
 export default {
   name: "Button1.demo",
@@ -38,10 +38,6 @@ export default {
 
       &.normal {
         margin: 0;
-
-        > button {
-          //margin: 0 0 0 10px;
-        }
       }
 
       &.link {

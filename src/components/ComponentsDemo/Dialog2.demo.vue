@@ -8,9 +8,8 @@
 </template>
 
 <script lang="ts">
-import Button from '../../lib/Button.vue'
+import {Button, openDialog} from "../../lib/index";
 import {h} from 'vue'
-import {openDialog} from '../../lib/openDialog'
 
 
 export default {
@@ -22,7 +21,7 @@ export default {
     const showDialog = () => {
       openDialog({
         title: h('strong', {}, '标题'),
-        content: '你好',
+        content: '这是一个由openDialog()一键打开的对话框',
         ok() {
           console.log('ok')
         },

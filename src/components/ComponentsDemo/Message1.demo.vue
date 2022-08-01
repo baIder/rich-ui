@@ -8,8 +8,7 @@
 </template>
 
 <script lang="ts">
-import Button from "../../lib/Button.vue";
-import {popMessage} from "../../lib/popMessage";
+import {Button, popMessage} from "../../lib/index";
 
 export default {
   name: "Message1.demo",
