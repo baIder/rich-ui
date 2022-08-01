@@ -39,7 +39,7 @@
 </template>
 
 <script lang="ts">
-import {toggleActive} from "../lib/toggleActive.ts";
+import {toggleActive} from "../assets/toggleActive.ts";
 import Button from '../lib/Button.vue'
 
 export default {

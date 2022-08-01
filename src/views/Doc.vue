@@ -28,7 +28,7 @@
 <script lang="ts">
 import TopNav from '../components/TopNav.vue';
 import {onMounted} from 'vue';
-import {toggleActive} from "../lib/toggleActive";
+import {toggleActive} from "../assets/toggleActive";
 
 export default {
   name: 'Doc',
