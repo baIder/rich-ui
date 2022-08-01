@@ -1,6 +1,10 @@
 {
-  "name": "rich-ui",
-  "version": "0.0.0",
+  "name": "rich-ui-bald3r",
+  "version": "0.0.1",
+  "files": [
+    "dist/lib/*"
+  ],
+  "main": "dist/lib/rich-ui.js",
   "license": "MIT",
   "scripts": {
     "dev": "vite",
