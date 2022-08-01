@@ -2,7 +2,11 @@ import {createApp, h} from 'vue';
 import Message from './Message.vue'
 
 export const popMessage = (options) => {
-    const {message, msgType, closeDelay} = options;
+    const {message, msgType} = options;
+    let {closeDelay} = options;
+    if (!closeDelay) {
+        closeDelay = '3000'
+    }
     let msgContainer = document.getElementById('msgDiv')
     if (msgContainer === null) {
         msgContainer = document.createElement('div')

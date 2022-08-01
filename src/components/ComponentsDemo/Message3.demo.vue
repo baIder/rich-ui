@@ -16,7 +16,7 @@ export default {
   components: {Button},
   setup() {
     const pop10sMsg = () => {
-      popMessage({message: '这是一个持续10s的提醒', msgType: 'normal', closeDelay: '10000'})
+      popMessage({message: '这是一个持续10s的提醒', closeDelay: '10000'})
     }
     return {pop10sMsg}
   }

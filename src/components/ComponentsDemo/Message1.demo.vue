@@ -18,8 +18,6 @@ export default {
     const popNormalMsg = () => {
       popMessage({
         message: '这是一个全局显示的普通提醒',
-        msgType: 'normal',
-        closeDelay: '2000',
       })
     }
     return {popNormalMsg}
