@@ -9,10 +9,8 @@
   filter: opacity(0);
   transition: filter 750ms ease-in;
   pointer-events: none;
+}
 
-  > .page-loading {
-    filter: opacity(0.5);
-  }
-
-
+#loading-wrapper.page-loading {
+  filter: opacity(1);
 }
