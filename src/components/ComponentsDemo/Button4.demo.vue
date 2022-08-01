@@ -17,26 +17,3 @@ export default {
   components: {Button}
 }
 </script>
-
-<style lang="scss" scoped>
-@media (max-width: 500px) {
-  .Button4demoWrapper {
-    > button {
-      margin: 0 0 0 2px;
-      padding: 12px;
-
-      &.rich-theme-link {
-        margin: 0 0 0 2px;
-        padding: 0 4px;
-      }
-
-      &.rich-theme-text {
-        margin: 0 0 0 2px;
-        padding: 0 4px;
-      }
-    }
-  }
-}
-
-
-</style>

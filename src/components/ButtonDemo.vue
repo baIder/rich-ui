@@ -32,6 +32,47 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
+@media (max-width: 500px) {
+  .Button3demoWrapper {
+    > .ButtonWrapper {
+      margin: 16px 0;
+
+      &.normal {
+        margin: 0;
+      }
+
+      &.link {
+        > button {
+          margin: 0 0 0 2px;
+          padding: 0 0 0 2px;
+        }
+      }
+
+      &.text {
+        > button {
+          margin: 0 0 0 2px;
+          padding: 0 0 0 2px;
+        }
+      }
+    }
+  }
+  .Button4demoWrapper {
+    > button {
+      margin: 0 0 0 2px;
+      padding: 12px;
+
+      &.rich-theme-link {
+        margin: 0 0 0 2px;
+        padding: 0 4px;
+      }
+
+      &.rich-theme-text {
+        margin: 0 0 0 2px;
+        padding: 0 4px;
+      }
+    }
+  }
+}
 
 </style>

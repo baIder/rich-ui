@@ -29,35 +29,3 @@ export default {
   components: {Button}
 }
 </script>
-
-<style lang="scss" scoped>
-@media (max-width: 500px) {
-  .Button3demoWrapper {
-    > .ButtonWrapper {
-      margin: 16px 0;
-
-      &.normal {
-        margin: 0;
-      }
-
-      &.link {
-        > button {
-          margin: 0 0 0 2px;
-          padding: 0 0 0 2px;
-        }
-      }
-
-      &.text {
-        > button {
-          margin: 0 0 0 2px;
-          padding: 0 0 0 2px;
-        }
-
-      }
-    }
-  }
-
-
-}
-
-</style>
