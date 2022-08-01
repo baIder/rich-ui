@@ -33,6 +33,7 @@ export const popMessage = (options) => {
     app.mount(div);
 
     const msgDiv = document.getElementById(String(msgId))
+    msgDiv.classList.add(`rich-message-type-${options.msgType}`)
     setTimeout(() => {
         msgDiv.classList.add('message-active')
     }, 0)
