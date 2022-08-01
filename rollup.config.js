@@ -10,8 +10,8 @@ export default {
         globals: {
             vue: 'Vue'
         },
-        name: 'rich',
-        file: 'dist/lib/rich.js',
+        name: 'rich-ui',
+        file: 'dist/lib/rich-ui.js',
         format: 'umd',
         plugins: [terser()]
     },
